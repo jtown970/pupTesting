@@ -24,7 +24,8 @@ const puppeteer = require('puppeteer');
       const srpCpoPageUrlContains = "certified-pre-owned"
     // * CONTACT
       const contactPageUrlContains = "contact-us"
-      const contactFormVar = '#gform_submit_button_3748'
+      // const contactFormVar = '#gform_submit_button_3748'
+      const contactFormVar = '#gform_submit_button_4128'
     // * FINANCE
       const financePageUrlContains = "finance"
     // * ORDER PARTS
@@ -315,11 +316,17 @@ const puppeteer = require('puppeteer');
   } catch (err) {
     console.log('CONTACT PAGEVIEW: ', 'FAILED');
   }
+  await page.screenshot({path: '3-CONTACT-PAGE.png'});
+
       // * FORM
-      // await Promise.all([
-      //   page.click(contactFormVar),
-      //   console.log('clicked contact form'),
-      // ])
+      try {
+        await Promise.all([
+          page.click(contactFormVar),
+          console.log('CONTACT FORM: ', 'PASSED'),
+        ])
+      } catch (err) {
+        console.log('CONTACT FORM: ', 'FAILED');
+      }
 
   // *** END
   await browser.close();
