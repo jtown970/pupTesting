@@ -37,160 +37,284 @@ const puppeteer = require('puppeteer');
 
 
   // *** NEW-SRP-PAGE-VIEW
-  await page.goto(`${url}/${srpNewPageUrlContains}`);
-  console.log('new pageview');
-  await page.screenshot({path: '2-SRP-NEW-PAGE.png'});
+  try {
+    await page.goto(`${url}/${srpNewPageUrlContains}`);
+    console.log('SRP-NEW PAGEVIEW:', 'PASSED');
+    await page.screenshot({path: '2-SRP-NEW-PAGE.png'});
+  } catch (err){
+    console.log('SRP NEW PAGEVIEW:  FAILED');
+  }
+
     // ** ePrice
-    await Promise.all([
-      page.click(srpNewEpriceVar),
-      console.log('clicked ePrice'),
-    ])
-    await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
-    // * Close ePrice
-    await Promise.all([
-      page.click(closeEprice),
-      console.log('clicked Close ePrice'),
-    ])
-    await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
-    // * Go to VDP
-    await Promise.all([
-      page.click(carImg),
-      console.log('clicked Car Img'),
-    ])
-    await page.screenshot({path: '2-3-VDP-NEW.png'})
-    // * VDP ePrice
-    await Promise.all([
-      page.click(vdpNewEpriceVar1),
-      console.log('clicked eprice'),
-    ])
-    await page.screenshot({path: '2-4-VDP-NEW.png'})
-    // * Close ePrice
-    await Promise.all([
-      page.click(closeEprice),
-      console.log('clicked Close ePrice'),
-    ])
-    await page.screenshot({path: '2-5-EPRICE-CLOSE.png'})
-    // * VDP ePrice
-    await Promise.all([
-      page.click(vdpNewEpriceVar2),
-      console.log('clicked eprice'),
-    ])
-    await page.screenshot({path: '2-6-VDP-NEW.png'})
-
-
-  // *** USED-SRP-PAGE-VIEW
-  await page.goto(`${url}/${srpUsedPageUrlContains}`);
-  console.log('used pageview');
-  await page.screenshot({path: '2-SRP-USED-PAGE.png'});
-      // ** ePrice
+    try {    
       await Promise.all([
         page.click(srpNewEpriceVar),
-        console.log('clicked ePrice'),
+        console.log('SRP NEW ePRICE:', 'PASSED'),
       ])
-      await page.screenshot({path: '2-1-SRP-USED-EPRICE.png'})
-      // * Close ePrice
+      await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
+    } catch (err) {
+      console.log('SRP NEW ePRICE:  FAILED');
+    }
+
+    // * Close ePrice
+    try {
       await Promise.all([
         page.click(closeEprice),
-        console.log('clicked Close ePrice'),
+        console.log('Close ePrice:', "PASSED"),
       ])
-      await page.screenshot({path: '2-2-SRP-USED-EPRICE-CLOSE.png'})
-      // * Go to VDP
+      await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
+    } catch (err) {
+      console.log('Close ePrice:', 'FAILED');
+    }
+
+    // * Go to VDP
+    try {
       await Promise.all([
         page.click(carImg),
-        console.log('clicked Car Img'),
+        console.log('Go to VDP page: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-3-VDP-USED.png'})
-      // * VDP ePrice
+      await page.screenshot({path: '2-3-VDP-NEW.png'})
+    } catch (err) {
+      console.log('Go to VDP Page:', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
       await Promise.all([
         page.click(vdpNewEpriceVar1),
-        console.log('clicked eprice'),
+        console.log('VDP ePrice: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-4-VDP-USED.png'})
-      // * Close ePrice
+      await page.screenshot({path: '2-4-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE: ', 'FAILED');
+    }
+
+    // * Close ePrice
+    try {
       await Promise.all([
         page.click(closeEprice),
-        console.log('clicked Close ePrice'),
+        console.log('CLOSE ePRICE: ', 'PASSED'),
       ])
       await page.screenshot({path: '2-5-EPRICE-CLOSE.png'})
-      // * VDP ePrice
+    } catch (err) {
+      console.log('CLOSE ePRICE: ', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
       await Promise.all([
         page.click(vdpNewEpriceVar2),
-        console.log('clicked eprice'),
+        console.log('VDP ePRICE 2: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-6-VDP-USED.png'})
+      await page.screenshot({path: '2-6-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE 2: ', 'FAILED');
+    }
+
+  // *** USED-SRP-PAGE-VIEW
+    try {
+      await page.goto(`${url}/${srpUsedPageUrlContains}`);
+      console.log('USED PAGEVIEW: ', 'PASSED');
+      await page.screenshot({path: '2-SRP-USED-PAGE.png'});
+    } catch (err) {
+      console.log('USED PAGEVIEW: ', 'FAILED');
+    }
+
+     // ** ePrice
+     try {    
+      await Promise.all([
+        page.click(srpNewEpriceVar),
+        console.log('SRP NEW ePRICE:', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
+    } catch (err) {
+      console.log('SRP NEW ePRICE:  FAILED');
+    }
+
+    // * Close ePrice
+    try {
+      await Promise.all([
+        page.click(closeEprice),
+        console.log('Close ePrice:', "PASSED"),
+      ])
+      await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
+    } catch (err) {
+      console.log('Close ePrice:', 'FAILED');
+    }
+
+    // * Go to VDP
+    try {
+      await Promise.all([
+        page.click(carImg),
+        console.log('Go to VDP page: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-3-VDP-NEW.png'})
+    } catch (err) {
+      console.log('Go to VDP Page:', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
+      await Promise.all([
+        page.click(vdpNewEpriceVar1),
+        console.log('VDP ePrice: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-4-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE: ', 'FAILED');
+    }
+
+    // * Close ePrice
+    try {
+      await Promise.all([
+        page.click(closeEprice),
+        console.log('CLOSE ePRICE: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-5-EPRICE-CLOSE.png'})
+    } catch (err) {
+      console.log('CLOSE ePRICE: ', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
+      await Promise.all([
+        page.click(vdpNewEpriceVar2),
+        console.log('VDP ePRICE 2: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-6-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE 2: ', 'FAILED');
+    }
 
 
   // *** CPO-SRP-PAGE-VIEW
-  await page.goto(`${url}/${srpCpoPageUrlContains}`);
-  console.log('cpo pageview');
-  await page.screenshot({path: '2-SRP-CPO-PAGE.png'});
-      // ** ePrice
+  try {
+    await page.goto(`${url}/${srpCpoPageUrlContains}`);
+    console.log('CPO PAGEVIEW: ', 'PASSED');
+    await page.screenshot({path: '2-SRP-CPO-PAGE.png'});
+  } catch (err) {
+    console.log('CPO PAGEVIEW: ', 'FAILED');
+  }
+     // ** ePrice
+     try {    
       await Promise.all([
         page.click(srpNewEpriceVar),
-        console.log('clicked ePrice'),
+        console.log('SRP NEW ePRICE:', 'PASSED'),
       ])
-      await page.screenshot({path: '2-1-SRP-CPO-EPRICE.png'})
-      // * Close ePrice
+      await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
+    } catch (err) {
+      console.log('SRP NEW ePRICE:  FAILED');
+    }
+
+    // * Close ePrice
+    try {
       await Promise.all([
         page.click(closeEprice),
-        console.log('clicked Close ePrice'),
+        console.log('Close ePrice:', "PASSED"),
       ])
-      await page.screenshot({path: '2-2-SRP-CPO-EPRICE-CLOSE.png'})
-      // * Go to VDP
+      await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
+    } catch (err) {
+      console.log('Close ePrice:', 'FAILED');
+    }
+
+    // * Go to VDP
+    try {
       await Promise.all([
         page.click(carImg),
-        console.log('clicked Car Img'),
+        console.log('Go to VDP page: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-3-VDP-CPO.png'})
-      // * VDP ePrice
+      await page.screenshot({path: '2-3-VDP-NEW.png'})
+    } catch (err) {
+      console.log('Go to VDP Page:', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
       await Promise.all([
         page.click(vdpNewEpriceVar1),
-        console.log('clicked eprice'),
+        console.log('VDP ePrice: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-4-VDP-CPO.png'})
-      // * Close ePrice
+      await page.screenshot({path: '2-4-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE: ', 'FAILED');
+    }
+
+    // * Close ePrice
+    try {
       await Promise.all([
         page.click(closeEprice),
-        console.log('clicked Close ePrice'),
+        console.log('CLOSE ePRICE: ', 'PASSED'),
       ])
       await page.screenshot({path: '2-5-EPRICE-CLOSE.png'})
-      // * VDP ePrice
+    } catch (err) {
+      console.log('CLOSE ePRICE: ', 'FAILED');
+    }
+
+    // * VDP ePrice
+    try {
       await Promise.all([
         page.click(vdpNewEpriceVar2),
-        console.log('clicked eprice'),
+        console.log('VDP ePRICE 2: ', 'PASSED'),
       ])
-      await page.screenshot({path: '2-6-VDP-CPO.png'})
-
+      await page.screenshot({path: '2-6-VDP-NEW.png'})
+    } catch (err) {
+      console.log('VDP ePRICE 2: ', 'FAILED');
+    }
 
   // *** FINANCE
-  await page.goto(`${url}/${financePageUrlContains}`);
-  console.log('finance pageview');
-  await page.screenshot({path: '2-FINANCE-PAGE.png'});
+  try {
+    await page.goto(`${url}/${financePageUrlContains}`);
+    console.log('FINANCE PAGEVIEW: ', 'PASSED');
+    await page.screenshot({path: '2-FINANCE-PAGE.png'});
+  } catch (err) {
+    console.log('FINANCE PAGEVIEW: ', 'FAILED');
+  }
 
   // *** ORDER PARTS
-  await page.goto(`${url}/${orderPartsPageUrlContains}`);
-  console.log('order parts pageview');
-  await page.screenshot({path: '2-ORDER-PARTS-PAGE.png'});
+  try {
+    await page.goto(`${url}/${orderPartsPageUrlContains}`);
+    console.log('ORDER PARTS PAGEVIEW: ', 'PASSED');
+    await page.screenshot({path: '2-ORDER-PARTS-PAGE.png'});
+  } catch (err) {
+    console.log('ORDER PARTS PAGEVIEW: ', 'FAILED');
+  }
 
   // *** COUPONS
-  await page.goto(`${url}/${couponPageUrlContains}`);
-  console.log('coupons pageview');
+  try {
+    await page.goto(`${url}/${couponPageUrlContains}`);
+    console.log('COUPON PAGEVIEW: ', 'PASSED');
+  } catch (err) {
+    console.log('COUPON PAGEVIEW: ', 'FAILED');
+  }
   await page.screenshot({path: '2-ORDER-PARTS-PAGE.png'});
       // * PRINT
-      await Promise.all([
-        page.click(printCouponVar),
-        console.log('clicked print coupon'),
-      ])
+      try {
+        await Promise.all([
+          page.click(printCouponVar),
+          console.log('PRINT COUPON: ', 'PASSED'),
+        ])
+      } catch (err) {
+        console.log('PRINT COUPON: ', 'FAILED');
+      }
+
 
   // *** SCHEDULE SERVICE
-  await page.goto(`${url}/${scheduleServicePageUrlContains}`);
-  console.log('schedule service pageview');
-  await page.screenshot({path: '2-ORDER-PARTS-PAGE.png'});
+  try {
+    await page.goto(`${url}/${scheduleServicePageUrlContains}`);
+    console.log('SCHEDULE SERVICE PAGEVIEW: ', 'PASSED');
+    await page.screenshot({path: '2-ORDER-PARTS-PAGE.png'});
+  } catch (err) {
+    console.log('SCHEDULE SERVICE PAGEVIEW: ', 'FAILED');
+  }
 
   // *** CONTACT
-  await page.goto(`${url}/${contactPageUrlContains}`);
-  console.log('contact pageview');
-  await page.screenshot({path: '3-CONTACT-PAGE.png'});
+  try {
+    await page.goto(`${url}/${contactPageUrlContains}`);
+    console.log('CONTACT PAGEVIEW: ', 'PASSED');
+    await page.screenshot({path: '3-CONTACT-PAGE.png'});
+  } catch (err) {
+    console.log('CONTACT PAGEVIEW: ', 'FAILED');
+  }
       // * FORM
       // await Promise.all([
       //   page.click(contactFormVar),
