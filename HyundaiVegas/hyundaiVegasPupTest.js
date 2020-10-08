@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
 
   // *** GLOBAL VARS  *** 
   // * ePRICE
-      const closeEprice1 = '.Modal__close-button-icon'
+      // const closeEprice1 = '.Modal__close-button-icon'
       const closeEprice = '.di-modal-close'
       const srpNewEpriceVar = '.lightning-custom-cta'
       const carImg = 'div.hit-image'
@@ -58,20 +58,22 @@ const puppeteer = require('puppeteer');
       console.log('SRP NEW ePRICE:  FAILED');
     }
 
+await page.waitFor(1000);
     // * Close ePrice
     try {
       await Promise.all([
         page.click(closeEprice),
         console.log('Close ePrice:', "PASSED"),
+        await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
       ])
-      await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
     } catch (err) {
       console.log('Close ePrice:', 'FAILED');
     }
-
+    await page.waitFor(1000);
     // * Go to VDP
     try {
       await Promise.all([
+        page.waitForNavigation(),
         page.click(carImg),
         console.log('Go to VDP page: ', 'PASSED'),
       ])
@@ -132,6 +134,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('SRP NEW ePRICE:  FAILED');
     }
+    await page.waitFor(1000);
 
     // * Close ePrice
     try {
@@ -143,6 +146,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('Close ePrice:', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * Go to VDP
     try {
@@ -154,6 +158,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('Go to VDP Page:', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * VDP ePrice
     try {
@@ -165,6 +170,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('VDP ePRICE: ', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * Close ePrice
     try {
@@ -176,6 +182,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('CLOSE ePRICE: ', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * VDP ePrice
     try {
@@ -207,6 +214,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('SRP NEW ePRICE:  FAILED');
     }
+    await page.waitFor(1000);
 
     // * Close ePrice
     try {
@@ -218,6 +226,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('Close ePrice:', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * Go to VDP
     try {
@@ -229,6 +238,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('Go to VDP Page:', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * VDP ePrice
     try {
@@ -240,6 +250,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('VDP ePRICE: ', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * Close ePrice
     try {
@@ -251,6 +262,7 @@ const puppeteer = require('puppeteer');
     } catch (err) {
       console.log('CLOSE ePRICE: ', 'FAILED');
     }
+    await page.waitFor(1000);
 
     // * VDP ePrice
     try {
