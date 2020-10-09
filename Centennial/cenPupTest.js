@@ -14,8 +14,10 @@ const puppeteer = require('puppeteer');
       const closeEprice = '.di-modal-close'
       const srpNewEpriceVar = '.lightning-custom-cta'
       const carImg = 'div.hit-image'
-      const vdpNewEpriceVar1 = '.vdp-pricebox-cta-button'
+      const vdpNewEpriceVar1 = '.main-cta'
       const vdpNewEpriceVar2 = '.online-shopper-cta-button'
+    // * TEST DRIVE
+      const testDriveBtn = 'div.hyundai-drive-cta-row a.primary-button' 
     // * NEW
       const srpNewPageUrlContains = "new-vehicles"
     // * USED
@@ -46,27 +48,27 @@ const puppeteer = require('puppeteer');
     console.log('SRP NEW PAGEVIEW:  FAILED');
   }
 
-    // ** ePrice
-    try {    
-      await Promise.all([
-        page.click(srpNewEpriceVar),
-        console.log('SRP NEW ePRICE:', 'PASSED'),
-      ])
-      await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
-    } catch (err) {
-      console.log('SRP NEW ePRICE:  FAILED');
-    }
+    // // ** ePrice
+    // try {    
+    //   await Promise.all([
+    //     page.click(srpNewEpriceVar),
+    //     console.log('SRP NEW ePRICE:', 'PASSED'),
+    //   ])
+    //   await page.screenshot({path: '2-1-SRP-NEW-EPRICE.png'})
+    // } catch (err) {
+    //   console.log('SRP NEW ePRICE:  FAILED');
+    // }
 
-    // * Close ePrice
-    try {
-      await Promise.all([
-        page.click(closeEprice),
-        console.log('Close ePrice:', "PASSED"),
-      ])
-      await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
-    } catch (err) {
-      console.log('Close ePrice:', 'FAILED');
-    }
+    // // * Close ePrice
+    // try {
+    //   await Promise.all([
+    //     page.click(closeEprice),
+    //     console.log('Close ePrice:', "PASSED"),
+    //   ])
+    //   await page.screenshot({path: '2-2-SRP-NEW-EPRICE-CLOSE.png'})
+    // } catch (err) {
+    //   console.log('Close ePrice:', 'FAILED');
+    // }
 
     // * Go to VDP
     try {
@@ -77,6 +79,16 @@ const puppeteer = require('puppeteer');
       await page.screenshot({path: '2-3-VDP-NEW.png'})
     } catch (err) {
       console.log('Go to VDP Page:', 'FAILED');
+    }
+    // * VDP Test Drive
+    try {
+      await Promise.all([
+        page.click(testDriveBtn),
+        console.log('NEW VDP TEST DRIVE: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-3-VDP-NEW.png'})
+    } catch (err) {
+      console.log('NEW VDP TEST DRIVE:', 'FAILED');
     }
 
     // * VDP ePrice
@@ -152,6 +164,17 @@ const puppeteer = require('puppeteer');
       await page.screenshot({path: '2-3-VDP-NEW.png'})
     } catch (err) {
       console.log('Go to VDP Page:', 'FAILED');
+    }
+
+    // * VDP Test Drive
+    try {
+      await Promise.all([
+        page.click(testDriveBtn),
+        console.log('NEW VDP TEST DRIVE: ', 'PASSED'),
+      ])
+      await page.screenshot({path: '2-3-VDP-NEW.png'})
+    } catch (err) {
+      console.log('NEW VDP TEST DRIVE:', 'FAILED');
     }
 
     // * VDP ePrice
