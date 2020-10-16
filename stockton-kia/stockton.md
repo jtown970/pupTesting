@@ -1,0 +1,5 @@
+- update script inject (done)
+- update phone & directions (done)
+- fix SRP (note it fires VDP on SRP page) (done)
+- add preqal btn srp and vdp (doesnt seem to work :( 
+- full test 

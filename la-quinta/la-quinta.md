@@ -1,0 +1,4 @@
+- full test 
+- update phone and directions(done)
+- build pup test
+- create goals and test

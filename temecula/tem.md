@@ -1,0 +1,13 @@
+- new used CPO page views SRP and VDP
+ - New Used CPO eprice SRP and VDP
+- Used specials
+- run pup test
+    - close btn
+    - targets for pageviews 
+    - 
+10-13-20
+- used vdp and new vdp ePrice (fix)
+- test coupon page
+- finance page
+- new specials page
+- print coupon 
